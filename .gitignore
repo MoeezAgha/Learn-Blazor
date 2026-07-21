@@ -1,0 +1,45 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# Test results
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Visual Studio Code
+.vscode/
