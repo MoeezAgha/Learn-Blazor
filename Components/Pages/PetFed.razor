@@ -1,0 +1,45 @@
+﻿@rendermode InteractiveServer
+
+<div style="background-color:lightblue;padding:20px;border-radius:10px;width:220px;">
+
+
+    <h1>🐾 @PetName</h1>
+
+
+    <p>Happiness : <span style="color:purple">@Happiness</span></p>
+
+
+    <button @onclick="FeedMyPet">
+        🍎 Feed Me!
+    </button>
+
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public string PetName { get; set; } = string.Empty;
+
+    private int Happiness { get; set; }
+    [Parameter]
+    public EventCallback<PetFeedResult> OnPetFed { get; set; }
+
+    private async Task FeedMyPet()
+    {
+        Happiness += 10;
+
+        var result = new PetFeedResult
+        {
+            PetName = PetName,
+            Happiness = Happiness
+        };
+
+        await OnPetFed.InvokeAsync(result);
+
+    }
+    public async Task ResetHappiness()
+    {
+        Happiness = 0;
+        await this.InvokeAsync(StateHasChanged);
+
+    }
+}

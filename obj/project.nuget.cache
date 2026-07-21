@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xcv13qOBNBA=",
+  "success": true,
+  "projectFilePath": "D:\\DailUpDev\\LearningBlazor-Component\\LearningBlazor-Component\\LearningBlazor-Component.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\moeez\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.10\\microsoft.aspnetcore.app.internal.assets.10.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
