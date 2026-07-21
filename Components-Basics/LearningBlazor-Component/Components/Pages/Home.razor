@@ -1,0 +1,49 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle> DailUpDev Pet Store</PageTitle>
+
+<h1>🐶🐶😺😺 DailUpDev Pet Store</h1>
+
+
+<div style="display:flex;gap:10px">
+
+    <PetFed @ref="dogComponentRef" PetName="Dog" OnPetFed="HandlePetFed" > </PetFed>
+    <PetFed @ref="catComponentRef"  PetName="Cat" OnPetFed="HandlePetFed"> </PetFed>
+
+</div>
+<hr />
+<button onclick="@Reset">🥴 Reset </button>
+
+
+<h2>Feeding Dashboard</h2>
+
+
+<p>Last pet fed: @LastPetFed</p>
+<p>Current Happiness: @CurrentHappiness</p>
+<p>Total Feedings: @TotalFeedings</p>
+
+@code{
+
+    private string LastPetFed { get; set; } = "None";
+    private int CurrentHappiness { get; set; } = 0;
+    private int TotalFeedings { get; set; } = 0;
+
+    private void HandlePetFed(PetFeedResult petResult)
+    {
+        LastPetFed = petResult.PetName;
+        CurrentHappiness = petResult.Happiness;
+        TotalFeedings++;
+
+    }
+
+    private async Task Reset()
+    {
+        await  catComponentRef.ResetHappiness();
+     await   dogComponentRef.ResetHappiness();
+    }
+
+
+    private PetFed catComponentRef;
+    private PetFed dogComponentRef;
+}
